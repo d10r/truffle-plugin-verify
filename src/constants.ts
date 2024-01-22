@@ -42,6 +42,7 @@ export const API_URLS: { [chainId: number]: string | undefined } = {
   534351: 'https://api-sepolia.scrollscan.com/api',
   534352: 'https://api-scrollscan.com/api',
   11155111: 'https://api-sepolia.etherscan.io/api',
+  11155420: 'https://api-sepolia-optimism.etherscan.io/api',
   1313161554: 'https://api.aurorascan.dev/api',
   1313161555: 'https://api-testnet.aurorascan.dev/api',
 };
@@ -85,6 +86,7 @@ export const EXPLORER_URLS: { [chainId: number]: string | undefined } = {
   534351: 'https://sepolia.scrollscan.com/address',
   534352: 'https://scrollscan.com/address',
   11155111: 'https://sepolia.etherscan.io/address',
+  11155420: 'https://sepolia-optimism.etherscan.io/address',
   1313161554: 'https://aurorascan.dev/address',
   1313161555: 'https://testnet.aurorascan.dev/address',
 };

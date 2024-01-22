@@ -159,7 +159,7 @@ module.exports = {
 #### All supported Etherscan-derived platforms & networks
 
 - [Etherscan](https://etherscan.io/) (Ethereum Mainnet & Goerli, Sepolia Testnets)
-- [Optimistic Etherscan](https://optimistic.etherscan.io/) (Optimistic Ethereum Mainnet & Goerli Testnet)
+- [Optimistic Etherscan](https://optimistic.etherscan.io/) (Optimistic Ethereum Mainnet, Goerli & Sepolia Testnet)
 - [Arbiscan](https://arbiscan.io) (Arbitrum Mainnet & Goerli Testnet)
 - [Arbiscan Nova](https://nova.arbiscan.io) (Arbitrum Nova)
 - [BscScan](https://bscscan.com) (BSC Mainnet & Testnet)
