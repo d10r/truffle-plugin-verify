@@ -1,4 +1,4 @@
-export const VERSION = '0.6.8';
+export const VERSION = '0.6.9';
 
 export const SUPPORTED_VERIFIERS = ['etherscan', 'sourcify'];
 
@@ -40,7 +40,7 @@ export const API_URLS: { [chainId: number]: string | undefined } = {
   84531: 'https://api-goerli.basescan.org/api',
   421613: 'https://api-goerli.arbiscan.io/api',
   534351: 'https://api-sepolia.scrollscan.com/api',
-  534352: 'https://api-scrollscan.com/api',
+  534352: 'https://api.scrollscan.com/api',
   11155111: 'https://api-sepolia.etherscan.io/api',
   11155420: 'https://api-sepolia-optimism.etherscan.io/api',
   1313161554: 'https://api.aurorascan.dev/api',
