@@ -151,6 +151,7 @@ module.exports = {
     gnosisscan: 'MY_API_KEY',
     celoscan: 'MY_API_KEY',
     clvscan: 'MY_API_KEY',
+    scrollscan:  'MY_API_KEY',
   },
 };
 ```
@@ -162,7 +163,7 @@ module.exports = {
 - [Arbiscan](https://arbiscan.io) (Arbitrum Mainnet & Goerli Testnet)
 - [Arbiscan Nova](https://nova.arbiscan.io) (Arbitrum Nova)
 - [BscScan](https://bscscan.com) (BSC Mainnet & Testnet)
-- [OpbnbScan](https://opbnb.bscscan.com) (opBNB Mainnet & opBNB Testnet) 
+- [OpbnbScan](https://opbnb.bscscan.com) (opBNB Mainnet & opBNB Testnet)
 - [Snowtrace](https://snowtrace.io/) (Avalanche Mainnet & Fuji Testnet)
 - [PolygonScan](https://polygonscan.com) (Polygon PoS & Mumbai Testnet)
 - [FtmScan](https://ftmscan.com) (Fantom Mainnet & Testnet)
@@ -177,6 +178,7 @@ module.exports = {
 - [Celoscan](https://celoscan.io/) (Celo Mainnet & Alfajores Testnet)
 - [BaseScan](https://basescan.org/) (Base Mainnet & Testnet)
 - [zkEVM PolygonScan](https://zkevm.polygonscan.com) (Polygon zkEVM Mainnet & Testnet)
+- [ScrollScan](https://scrollscan.org/) (Scroll Mainnet & Sepolia Testnet)
 
 ### Usage with unsupported chains
 
