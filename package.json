@@ -1,5 +1,5 @@
 {
-  "name": "truffle-plugin-verify",
+  "name": "@d10r/truffle-plugin-verify",
   "version": "0.6.10",
   "description": "Verify your deployed smart contracts on Etherscan from the Truffle CLI",
   "repository": "https://github.com/d10r/truffle-plugin-verify",
