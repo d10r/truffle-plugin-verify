@@ -38,6 +38,7 @@ module.exports = async (config: TruffleConfig): Promise<void> => {
       await verifier.verifyAll(contractNameAddressPairs);
     } catch (error: any) {
       logger.error(`${INDENT}${error.message}`);
+      process.exit(1);
     }
   }
 };

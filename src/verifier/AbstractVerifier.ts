@@ -73,7 +73,7 @@ export abstract class AbstractVerifier {
     if (failedContracts.length === 0) {
       this.logger.info(`Successfully verified ${contractNameAddressPairs.length} contract(s).`);
     } else {
-      this.logger.info(`Failed to verify ${failedContracts.length} contract(s): ${failedContracts.join(', ')}`);
+      throw new Error(`Failed to verify ${failedContracts.length} contract(s): ${failedContracts.join(', ')}`);
     }
   }
 }
