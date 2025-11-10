@@ -1,5 +1,7 @@
 ⚠️ Truffle (and truffle-plugin-verify) has been sunset. It is recommended to move over to Hardhat or Foundry ⚠️
 
+This fork only gets the minimal changes required to keep it working.
+
 # truffle-plugin-verify
 
 [![NPM Version](https://img.shields.io/npm/v/truffle-plugin-verify.svg)](https://www.npmjs.com/package/truffle-plugin-verify)
@@ -39,7 +41,7 @@ When only verifying on Sourcify, no more steps are required. When verifying on E
      /* ... rest of truffle-config */
 
      api_keys: {
-       etherscan: 'MY_API_KEY',
+       etherscan_v2: 'MY_API_KEY',
      },
    };
    ```
@@ -132,26 +134,7 @@ module.exports = {
   /* ... rest of truffle-config */
 
   api_keys: {
-    etherscan: 'MY_API_KEY',
-    optimistic_etherscan: 'MY_API_KEY',
-    arbiscan: 'MY_API_KEY',
-    nova_arbiscan: 'MY_API_KEY',
-    bscscan: 'MY_API_KEY',
-    opbnbscan: 'MY_API_KEY',
-    snowtrace: 'MY_API_KEY',
-    polygonscan: 'MY_API_KEY',
-    zkevm_polygonscan: 'MY_API_KEY',
-    ftmscan: 'MY_API_KEY',
-    hecoinfo: 'MY_API_KEY',
-    moonscan: 'MY_API_KEY',
-    moonriver_moonscan: 'MY_API_KEY',
-    bttcscan: 'MY_API_KEY',
-    aurorascan: 'MY_API_KEY',
-    cronoscan: 'MY_API_KEY',
-    gnosisscan: 'MY_API_KEY',
-    celoscan: 'MY_API_KEY',
-    clvscan: 'MY_API_KEY',
-    scrollscan:  'MY_API_KEY',
+    etherscan_v2: 'MY_API_KEY',
   },
 };
 ```

@@ -1,7 +1,7 @@
 import TruffleResolver from '@truffle/resolver';
 import axios from 'axios';
 import tunnel from 'tunnel';
-import { API_URLS, EXPLORER_URLS, INDENT, SUPPORTED_VERIFIERS, VERSION } from './constants';
+import { EXPLORER_URLS, INDENT, SUPPORTED_VERIFIERS, VERSION, getApiUrl } from './constants';
 import { Logger, Options, TruffleConfig } from './types';
 import { enforce, getApiKey, getNetwork } from './util';
 import { EtherscanVerifier } from './verifier/EtherscanVerifier';
@@ -48,8 +48,8 @@ const parseConfig = async (config: TruffleConfig): Promise<Options> => {
   const { chainId, networkId } = await getNetwork(config, logger);
 
   const explorerUrl = networkConfig?.verify?.explorerUrl ?? EXPLORER_URLS[Number(chainId)];
-  const apiUrl = networkConfig?.verify?.apiUrl ?? API_URLS[Number(chainId)];
-  const apiKey = getApiKey(config, apiUrl);
+  const apiUrl = networkConfig?.verify?.apiUrl ?? getApiUrl(Number(chainId));
+  const apiKey = getApiKey(config);
 
   enforce(config._.length > 1, 'No contract name(s) specified', logger);
   enforce(networkId !== '*', 'network_id bypassed with "*" in truffle-config.js.', logger);

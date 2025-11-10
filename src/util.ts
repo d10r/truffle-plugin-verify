@@ -154,18 +154,8 @@ export const getPlatform = (apiUrl: string): { platform: string; subPlatform?: s
   return { platform, subPlatform };
 };
 
-export const getApiKey = (config: TruffleConfig, apiUrl?: string): string | undefined => {
-  const networkConfig = config.networks[config.network];
-  if (networkConfig?.verify?.apiKey) {
-    return networkConfig.verify.apiKey;
-  }
-
-  if (!config.api_keys || !apiUrl) return undefined;
-
-  const { platform, subPlatform } = getPlatform(apiUrl);
-  const apiKey = config.api_keys![`${subPlatform}_${platform}`] ?? config.api_keys![platform];
-
-  return apiKey;
+export const getApiKey = (config: TruffleConfig): string | undefined => {
+  return config.api_keys!["etherscan_v2"];
 };
 
 export const getArtifact = (contractName: string, options: Options, logger: Logger): Artifact => {

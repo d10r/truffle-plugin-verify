@@ -20,7 +20,8 @@ export class EtherscanVerifier extends AbstractVerifier implements Verifier {
 
   constructor(options: Options) {
     super(options);
-    this.name = options.apiUrl ? getPlatform(options.apiUrl).platform : 'etherscan';
+    const platformSource = options.explorerUrl ?? options.apiUrl;
+    this.name = platformSource ? getPlatform(platformSource).platform : 'etherscan';
   }
 
   getContractUrl(address: string) {
@@ -87,6 +88,7 @@ export class EtherscanVerifier extends AbstractVerifier implements Verifier {
     const relativeFilePath = artifact.ast.absolutePath.replace('project:', '');
 
     const postQueries = {
+      chainid: this.options.chainId,
       apikey: this.options.apiKey,
       module: 'contract',
       action: 'verifysourcecode',
@@ -101,7 +103,8 @@ export class EtherscanVerifier extends AbstractVerifier implements Verifier {
     try {
       this.logger.debug('Sending verify request with POST arguments:');
       logObject(this.logger, 'debug', postQueries, 2);
-      return await axios.post(this.options.apiUrl!, querystring.stringify(postQueries));
+      const url = `${this.options.apiUrl}?${querystring.stringify({ chainid: this.options.chainId })}`;
+      return await axios.post(url, querystring.stringify(postQueries));
     } catch (error: any) {
       this.logger.debug(error.message);
       throw new Error(`Failed to connect to Etherscan API at url ${this.options.apiUrl}`);
@@ -115,6 +118,7 @@ export class EtherscanVerifier extends AbstractVerifier implements Verifier {
     let res;
     try {
       const qs = querystring.stringify({
+        chainid: this.options.chainId,
         apiKey: this.options.apiKey,
         module: 'account',
         action: 'txlist',
@@ -151,6 +155,7 @@ export class EtherscanVerifier extends AbstractVerifier implements Verifier {
 
       try {
         const qs = querystring.stringify({
+          chainid: this.options.chainId,
           apiKey: this.options.apiKey,
           module: 'contract',
           action,
@@ -170,6 +175,7 @@ export class EtherscanVerifier extends AbstractVerifier implements Verifier {
   private async sendProxyVerifyRequest(address: string) {
     const postQueries = { address };
     const qs = querystring.stringify({
+      chainid: this.options.chainId,
       apiKey: this.options.apiKey,
       module: 'contract',
       action: 'verifyproxycontract',
@@ -199,7 +205,8 @@ export class EtherscanVerifier extends AbstractVerifier implements Verifier {
       `Etherscan has no support for network ${this.options.networkName} with chain id ${this.options.chainId}`
     );
 
-    const { platform, subPlatform } = getPlatform(this.options.apiUrl!);
+    const platformSource = this.options.explorerUrl ?? this.options.apiUrl!;
+    const { platform, subPlatform } = getPlatform(platformSource);
     enforceOrThrow(this.options.apiKey, `No ${platform} or ${subPlatform}_${platform} API Key provided`);
   }
 }
